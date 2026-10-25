@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>คำนวณ BMI</title>
+</head>
+<body>
+
+    <label for="weight">น้ำหนัก (กก.):</label>
+    <input type="number" id="weight" placeholder="กรอกน้ำหนัก">
+    <br><br>
+
+    <label for="height">ส่วนสูง (ซม.):</label>
+    <input type="number" id="height" placeholder="กรอกส่วนสูง">
+    <br><br>
+
+    <button id="calc">คำนวณ</button>
+    <br><br>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('calc').addEventListener('click', function() {
+            // ดึงค่าจาก input
+            const weightVal = document.getElementById('weight').value;
+            const heightVal = document.getElementById('height').value;
+            const resultDiv = document.getElementById('result');
+
+            // แปลงค่าเป็นตัวเลข
+            const weight = Number(weightVal);
+            const height = Number(heightVal);
+
+            // เงื่อนไข: ช่องใดว่าง หรือเป็น 0 (หรือค่าน้อยกว่า/เท่ากับ 0)
+            if (!weightVal || !heightVal || weight <= 0 || height <= 0) {
+                resultDiv.textContent = 'กรุณากรอกน้ำหนักและส่วนสูง';
+                return;
+            }
+
+            // คำนวณ BMI (แปลง ซม. เป็น เมตร โดยหาร 100)
+            const heightInMeters = height / 100;
+            const rawBMI = weight / (heightInMeters * heightInMeters);
+
+            // ตัดสินกลุ่มจากค่าก่อนปัดเศษ (rawBMI)
+            let group = '';
+            if (rawBMI < 18.5) {
+                group = 'น้ำหนักน้อย';
+            } else if (rawBMI < 25) { // 18.5 ขึ้นไป แต่น้อยกว่า 25
+                group = 'ปกติ';
+            } else { // 25 ขึ้นไป
+                group = 'น้ำหนักเกิน';
+            }
+
+            // แสดงผล BMI ทศนิยม 1 ตำแหน่งด้วย .toFixed(1)
+            resultDiv.textContent = `BMI ${rawBMI.toFixed(1)} (${group})`;
+        });
+    </script>
+
+</body>
+</html>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
