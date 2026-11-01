@@ -1,87 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>คำนวณ BMI</title>
-<style>
-:root{--blue:#79afea;--dark:#315f9e;--text:#40516f}*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;padding:24px 16px 42px;color:var(--text);font-family:Tahoma,sans-serif;background:linear-gradient(135deg,#edf7ff,#dceeff 55%,#f7fbff);line-height:1.7}
-body>*{max-width:900px;margin-left:auto;margin-right:auto}
-body>a:first-child{display:inline-block!important;margin:0 auto 20px!important;padding:9px 16px!important;background:#fff!important;color:var(--dark)!important;border:1px solid #c6ddfa!important;border-radius:30px!important;text-decoration:none!important;font-family:Tahoma,sans-serif!important;font-weight:bold!important;box-shadow:0 5px 15px #5b8bc21a}
-body>a:first-child:hover{background:var(--blue)!important;color:white!important}
-h1,h2,h3{color:var(--dark);line-height:1.35}h1{font-size:clamp(28px,5vw,42px)}h2{font-size:24px}
-body>h1,body>h2,body>h3,body>p,body>form,body>table,body>header,body>main,body>section,body>div,body>button{background:#ffffffed;border:1px solid #d9eaff;border-radius:22px;padding:22px;box-shadow:0 12px 30px #5b8bc21f;margin-top:14px;margin-bottom:14px}
-header,nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-nav a,body a:not(:first-child){color:var(--dark)}
-table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:14px;text-align:center}th{background:#dceeff;color:var(--dark);padding:12px}td{padding:11px;background:white;border-top:1px solid #e5effb}tr:nth-child(even) td{background:#f4f9ff}
-img{max-width:100%;height:auto;border-radius:14px}form{display:grid;gap:10px}
-input,select,textarea{width:100%;max-width:100%;padding:11px 13px;border:1px solid #c6ddfa;border-radius:11px;background:#fff;color:var(--text);font:inherit}
-button{padding:10px 18px;border:0;border-radius:24px;background:var(--blue);color:#fff;font:inherit;font-weight:bold;cursor:pointer}button:hover{background:var(--dark)}label{font-weight:bold;color:var(--dark)}footer{text-align:center;color:#5b79a3}
-@media(max-width:600px){body{padding:16px 11px 30px}body>h1,body>h2,body>h3,body>p,body>form,body>table,body>header,body>main,body>section,body>div,body>button{padding:16px}}
-</style>
+    <style>
+        :root{--blue:#79afea;--dark:#315f9e;--text:#40516f}
+        *{box-sizing:border-box}
+        body{margin:0;min-height:100vh;padding:24px 16px 42px;color:var(--text);font-family:Tahoma,sans-serif;background:linear-gradient(135deg,#edf7ff,#dceeff 55%,#f7fbff);line-height:1.7}
+        .container{width:min(100%,700px);margin:0 auto}
+        .back-row{display:block;margin-bottom:18px}
+        .back-link{display:inline-block;padding:9px 16px;background:#fff;color:var(--dark);border:1px solid #c6ddfa;border-radius:30px;text-decoration:none;font-weight:bold;box-shadow:0 5px 15px #5b8bc21a}
+        .back-link:hover{background:var(--blue);color:#fff}
+        .bmi-card{background:#ffffffed;border:1px solid #d9eaff;border-radius:22px;padding:24px;box-shadow:0 12px 30px #5b8bc21f}
+        h1{margin:0 0 22px;color:var(--dark);font-size:clamp(26px,5vw,36px)}
+        .field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+        label{font-weight:bold;color:var(--dark)}
+        input{width:100%;padding:11px 13px;border:1px solid #c6ddfa;border-radius:11px;background:#fff;color:var(--text);font:inherit}
+        button{padding:10px 22px;border:0;border-radius:24px;background:var(--blue);color:#fff;font:inherit;font-weight:bold;cursor:pointer}
+        button:hover{background:var(--dark)}
+        #result{margin-top:18px;padding:12px;border-radius:12px;background:#f1f7ff;color:var(--dark);font-weight:bold}
+        @media(max-width:600px){body{padding:16px 11px 30px}.bmi-card{padding:18px}}
+    </style>
 </head>
 <body>
-  <a href="../index.html" style="display:inline-block;margin:12px;padding:10px 18px;background:#dceeff;color:#315f9e;border:1px solid #b9d8ff;border-radius:24px;text-decoration:none;font-family:Tahoma,sans-serif;font-weight:bold;">← กลับหน้าหลัก</a>
+    <div class="container">
+        <div class="back-row">
+            <a class="back-link" href="../index.html">← กลับหน้าหลัก</a>
+        </div>
 
+        <main class="bmi-card">
+            <h1>คำนวณ BMI</h1>
 
-    <label for="weight">น้ำหนัก (กก.):</label>
-    <input type="number" id="weight" placeholder="กรอกน้ำหนัก">
-    <br><br>
+            <div class="field">
+                <label for="weight">น้ำหนัก (กก.):</label>
+                <input type="number" id="weight" placeholder="กรอกน้ำหนัก">
+            </div>
 
-    <label for="height">ส่วนสูง (ซม.):</label>
-    <input type="number" id="height" placeholder="กรอกส่วนสูง">
-    <br><br>
+            <div class="field">
+                <label for="height">ส่วนสูง (ซม.):</label>
+                <input type="number" id="height" placeholder="กรอกส่วนสูง">
+            </div>
 
-    <button id="calc">คำนวณ</button>
-    <br><br>
-
-    <div id="result"></div>
+            <button id="calc" type="button">คำนวณ</button>
+            <div id="result" aria-live="polite"></div>
+        </main>
+    </div>
 
     <script>
         document.getElementById('calc').addEventListener('click', function() {
-            // ดึงค่าจาก input
             const weightVal = document.getElementById('weight').value;
             const heightVal = document.getElementById('height').value;
             const resultDiv = document.getElementById('result');
 
-            // แปลงค่าเป็นตัวเลข
             const weight = Number(weightVal);
             const height = Number(heightVal);
 
-            // เงื่อนไข: ช่องใดว่าง หรือเป็น 0 (หรือค่าน้อยกว่า/เท่ากับ 0)
             if (!weightVal || !heightVal || weight <= 0 || height <= 0) {
                 resultDiv.textContent = 'กรุณากรอกน้ำหนักและส่วนสูง';
                 return;
             }
 
-            // คำนวณ BMI (แปลง ซม. เป็น เมตร โดยหาร 100)
             const heightInMeters = height / 100;
             const rawBMI = weight / (heightInMeters * heightInMeters);
 
-            // ตัดสินกลุ่มจากค่าก่อนปัดเศษ (rawBMI)
             let group = '';
             if (rawBMI < 18.5) {
                 group = 'น้ำหนักน้อย';
-            } else if (rawBMI < 25) { // 18.5 ขึ้นไป แต่น้อยกว่า 25
+            } else if (rawBMI < 25) {
                 group = 'ปกติ';
-            } else { // 25 ขึ้นไป
+            } else {
                 group = 'น้ำหนักเกิน';
             }
 
-            // แสดงผล BMI ทศนิยม 1 ตำแหน่งด้วย .toFixed(1)
             resultDiv.textContent = `BMI ${rawBMI.toFixed(1)} (${group})`;
         });
     </script>
-
-</body>
-</html>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
 </body>
 </html>
