@@ -30,6 +30,7 @@ button:hover{background:var(--dark)}
 label{font-weight:bold;color:var(--dark)}
 footer{text-align:center;color:#5b79a3}
 @media(max-width:600px){body{padding:16px 11px 30px}body>h1,body>h2,body>h3,body>p,body>form,body>table,body>header,body>main,body>section,body>div{padding:16px}table{font-size:14px}}
+ .brand-logo{width:230px;max-width:100%;margin:8px auto 18px;padding:14px 12px 16px;text-align:center;background:linear-gradient(145deg,#fff,#edf6ff);border:1px solid #c9e0f8;border-radius:24px;box-shadow:0 10px 24px #5b8bc225}.brand-logo svg{display:block;width:150px;max-width:100%;height:auto;margin:0 auto}.brand-name{font-size:27px;letter-spacing:2px;font-weight:800;color:#416eaa;line-height:1.2}.brand-name span{color:#e49aaa}.brand-tagline{margin-top:5px;font-size:10px;letter-spacing:2px;color:#7896b9;font-weight:bold}
 </style>
 </head>
 <body>
@@ -38,7 +39,24 @@ footer{text-align:center;color:#5b79a3}
     <h1>ร้านกาแฟแมวเหมียว</h1>
 
     <!-- 1. รูปโลโก้ กว้าง 200 -->
-		<img src="logo.png" alt="โลโก้บริษัท" width="200">
+        <div class="brand-logo" role="img" aria-label="โลโก้ร้านกาแฟแมวเหมียว">
+          <svg viewBox="0 0 240 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="cup" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9bc9f4"/><stop offset="1" stop-color="#5d91cf"/></linearGradient>
+            </defs>
+            <circle cx="120" cy="88" r="78" fill="#f1f8ff" stroke="#b8d8f5" stroke-width="5"/>
+            <path d="M76 65 L82 24 Q84 17 91 23 L112 43 Q120 40 128 43 L149 23 Q156 17 158 25 L164 65" fill="#6e9ed2" stroke="#416eaa" stroke-width="5" stroke-linejoin="round"/>
+            <path d="M74 68 Q120 45 166 68 L157 113 Q120 145 83 113Z" fill="#fff" stroke="#416eaa" stroke-width="5"/>
+            <path d="M95 84 Q101 92 107 84 M133 84 Q139 92 145 84" fill="none" stroke="#416eaa" stroke-width="5" stroke-linecap="round"/>
+            <path d="M112 99 Q120 108 128 99" fill="none" stroke="#e79aa8" stroke-width="4" stroke-linecap="round"/>
+            <path d="M83 98 L58 93 M83 108 L59 111 M157 98 L182 93 M157 108 L181 111" stroke="#6e9ed2" stroke-width="3" stroke-linecap="round"/>
+            <path d="M88 125 Q120 143 152 125 L145 151 Q120 165 95 151Z" fill="url(#cup)" stroke="#416eaa" stroke-width="4"/>
+            <path d="M160 132 Q197 123 184 102 Q178 92 166 101" fill="none" stroke="#416eaa" stroke-width="7" stroke-linecap="round"/>
+            <path d="M104 27 Q96 12 106 7 M130 27 Q140 12 130 7" fill="none" stroke="#8bb8e8" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <div class="brand-name">MEOW<span> CAFE</span></div>
+          <div class="brand-tagline">COFFEE • CATS • HAPPINESS</div>
+        </div>
     <p>กาแฟดี แมวน่ารัก เปิดทุกวัน</p>
 
     <!-- 2. รูปบรรยากาศร้าน -->
