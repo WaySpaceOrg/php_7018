@@ -17,10 +17,16 @@ input{width:100%;max-width:180px;padding:11px 13px;border:1px solid #c6ddfa;bord
 label{display:block;font-weight:bold;color:var(--dark);margin:12px 0 6px}
 .total-line{font-size:20px;font-weight:bold;color:var(--dark)}
 @media(max-width:600px){body{padding:16px 11px 30px}main{padding:18px}}
+
+/* ปุ่มกลับหน้าหลักแบบเดียวกันทุกแบบฝึกหัด */
+.home-back{display:inline-flex;align-items:center;gap:7px;margin:0 auto 18px;padding:9px 16px;background:#fff;border:1px solid #c6ddfa;border-radius:30px;color:#315f9e;text-decoration:none;font-family:Tahoma,sans-serif;font-size:14px;font-weight:bold;box-shadow:0 5px 15px #5b8bc21a;transition:.2s}
+.home-back:hover{background:#79afea;color:#fff}
 </style>
 </head>
 <body>
-  <a href="../index.html" style="display:inline-block;margin:12px;padding:10px 18px;background:#dceeff;color:#315f9e;border:1px solid #b9d8ff;border-radius:24px;text-decoration:none;font-family:Tahoma,sans-serif;font-weight:bold;">← กลับหน้าหลัก</a>
+<a class="home-back" href="../index.html">← กลับหน้าหลัก</a>
+
+  
 
   <main>
     <h1>คำนวณราคารวม</h1>
