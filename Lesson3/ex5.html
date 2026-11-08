@@ -3,83 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คำนวณ BMI</title>
+    <title>เครื่องคิด BMI | Lesson 3</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        :root{--blue:#79afea;--dark:#315f9e;--text:#40516f}
-        *{box-sizing:border-box}
-        body{margin:0;min-height:100vh;padding:24px 16px 42px;color:var(--text);font-family:Tahoma,sans-serif;background:linear-gradient(135deg,#edf7ff,#dceeff 55%,#f7fbff);line-height:1.7}
-        .container{width:min(100%,700px);margin:0 auto}
-        .back-row{display:block;margin-bottom:18px}
-        .back-link{display:inline-block;padding:9px 16px;background:#fff;color:var(--dark);border:1px solid #c6ddfa;border-radius:30px;text-decoration:none;font-weight:bold;box-shadow:0 5px 15px #5b8bc21a}
-        .back-link:hover{background:var(--blue);color:#fff}
-        .bmi-card{background:#ffffffed;border:1px solid #d9eaff;border-radius:22px;padding:24px;box-shadow:0 12px 30px #5b8bc21f}
-        h1{margin:0 0 22px;color:var(--dark);font-size:clamp(26px,5vw,36px)}
-        .field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
-        label{font-weight:bold;color:var(--dark)}
-        input{width:100%;padding:11px 13px;border:1px solid #c6ddfa;border-radius:11px;background:#fff;color:var(--text);font:inherit}
-        button{padding:10px 22px;border:0;border-radius:24px;background:var(--blue);color:#fff;font:inherit;font-weight:bold;cursor:pointer}
-        button:hover{background:var(--dark)}
-        #result{margin-top:18px;padding:12px;border-radius:12px;background:#f1f7ff;color:var(--dark);font-weight:bold}
-        @media(max-width:600px){body{padding:16px 11px 30px}.bmi-card{padding:18px}}
-    
-/* ปุ่มกลับหน้าหลักแบบเดียวกันทุกแบบฝึกหัด */
-.home-back{display:inline-flex;align-items:center;gap:7px;margin:0 auto 18px;padding:9px 16px;background:#fff;border:1px solid #c6ddfa;border-radius:30px;color:#315f9e;text-decoration:none;font-family:Tahoma,sans-serif;font-size:14px;font-weight:bold;box-shadow:0 5px 15px #5b8bc21a;transition:.2s}
-.home-back:hover{background:#79afea;color:#fff}
-</style>
+        :root {
+            --blue: #79afea;
+            --dark: #315f9e;
+            --text: #40516f;
+        }
+        * { box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 28px 14px 42px;
+            color: var(--text);
+            font-family: Tahoma, sans-serif;
+            background: linear-gradient(135deg, #edf7ff, #dceeff 55%, #f7fbff);
+        }
+        .page-wrap { width: min(100%, 760px); margin: 0 auto; }
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .nav-link-custom {
+            display: inline-block;
+            padding: 9px 16px;
+            color: var(--dark);
+            background: #fff;
+            border: 1px solid #c6ddfa;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px #5b8bc21a;
+        }
+        .nav-link-custom:hover { color: #fff; background: var(--blue); }
+        .bmi-card {
+            padding: 28px;
+            background: #ffffffed;
+            border: 1px solid #d9eaff;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px #5b8bc21f;
+        }
+        h1 { color: var(--dark); font-weight: 700; }
+        .form-label { color: var(--dark); font-weight: bold; }
+        .form-control {
+            padding: 12px 14px;
+            border-color: #c6ddfa;
+            border-radius: 12px;
+        }
+        .form-control:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 .2rem #79afea33;
+        }
+        #calc {
+            padding: 11px 25px;
+            color: #fff;
+            background: var(--blue);
+            border: 0;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        #calc:hover { background: var(--dark); }
+        #result {
+            min-height: 52px;
+            margin-top: 20px;
+            padding: 13px;
+            color: var(--dark);
+            background: #f1f7ff;
+            border: 1px solid #d9eaff;
+            border-radius: 13px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        @media (max-width: 576px) {
+            body { padding: 18px 10px 30px; }
+            .bmi-card { padding: 20px 16px; }
+            .top-nav { justify-content: center; }
+        }
+    </style>
 </head>
 <body>
-<a class="home-back" href="../index.html">← กลับหน้าหลัก</a>
-
-    <div class="container">
-        <div class="back-row">
-            
-        </div>
+    <div class="page-wrap">
+        <nav class="top-nav" aria-label="เมนูนำทาง">
+            <a class="nav-link-custom" href="../index.html">← กลับหน้าแรก</a>
+            <div class="d-flex flex-wrap gap-2">
+                <a class="nav-link-custom" href="ex4.html">← แบบฝึกหัดก่อนหน้า</a>
+                <a class="nav-link-custom" href="../Lesson2/ex6.html">บทเรียนก่อนหน้า</a>
+            </div>
+        </nav>
 
         <main class="bmi-card">
-            <h1>คำนวณ BMI</h1>
-
-            <div class="field">
-                <label for="weight">น้ำหนัก (กก.):</label>
-                <input type="number" id="weight" placeholder="กรอกน้ำหนัก">
+            <div class="text-center mb-4">
+                <span class="badge rounded-pill text-bg-light border mb-2">LESSON 03 · EXERCISE 05</span>
+                <h1 class="h2 mb-2">เครื่องคิด BMI</h1>
+                <p class="text-secondary mb-0">คำนวณดัชนีมวลกายจากน้ำหนักและส่วนสูง</p>
             </div>
 
-            <div class="field">
-                <label for="height">ส่วนสูง (ซม.):</label>
-                <input type="number" id="height" placeholder="กรอกส่วนสูง">
+            <div class="mb-3">
+                <label class="form-label" for="weight">น้ำหนัก (กิโลกรัม)</label>
+                <input class="form-control" type="number" id="weight" min="0" step="any" placeholder="เช่น 60">
             </div>
 
-            <button id="calc" type="button">คำนวณ</button>
-            <div id="result" aria-live="polite"></div>
+            <div class="mb-4">
+                <label class="form-label" for="height">ส่วนสูง (เซนติเมตร)</label>
+                <input class="form-control" type="number" id="height" min="0" step="any" placeholder="เช่น 170">
+            </div>
+
+            <div class="d-grid">
+                <button id="calc" type="button" class="btn">คำนวณ BMI</button>
+            </div>
+
+            <div id="result" class="text-center" role="status" aria-live="polite">
+                กรุณากรอกน้ำหนักและส่วนสูง
+            </div>
         </main>
     </div>
 
     <script>
-        document.getElementById('calc').addEventListener('click', function() {
-            const weightVal = document.getElementById('weight').value;
-            const heightVal = document.getElementById('height').value;
-            const resultDiv = document.getElementById('result');
+        const weightInput = document.getElementById('weight');
+        const heightInput = document.getElementById('height');
+        const resultDiv = document.getElementById('result');
 
-            const weight = Number(weightVal);
-            const height = Number(heightVal);
+        document.getElementById('calc').addEventListener('click', function () {
+            const weightValue = weightInput.value.trim();
+            const heightValue = heightInput.value.trim();
 
-            if (!weightVal || !heightVal || weight <= 0 || height <= 0) {
+            if (weightValue === '' || heightValue === '') {
                 resultDiv.textContent = 'กรุณากรอกน้ำหนักและส่วนสูง';
                 return;
             }
 
-            const heightInMeters = height / 100;
-            const rawBMI = weight / (heightInMeters * heightInMeters);
+            const weight = Number(weightValue);
+            const height = Number(heightValue);
 
-            let group = '';
-            if (rawBMI < 18.5) {
-                group = 'น้ำหนักน้อย';
-            } else if (rawBMI < 25) {
-                group = 'ปกติ';
-            } else {
-                group = 'น้ำหนักเกิน';
+            if (!Number.isFinite(weight) || !Number.isFinite(height) || weight <= 0 || height <= 0) {
+                resultDiv.textContent = 'กรุณากรอกน้ำหนักและส่วนสูงให้ถูกต้อง';
+                return;
             }
 
-            resultDiv.textContent = `BMI ${rawBMI.toFixed(1)} (${group})`;
+            const heightInMeters = height / 100;
+            const bmi = weight / (heightInMeters * heightInMeters);
+
+            let category = '';
+            if (bmi < 18.5) {
+                category = 'น้ำหนักน้อย';
+            } else if (bmi < 25) {
+                category = 'ปกติ';
+            } else {
+                category = 'น้ำหนักเกิน';
+            }
+
+            resultDiv.textContent = 'BMI ' + bmi.toFixed(1) + ' (' + category + ')';
         });
     </script>
 </body>
