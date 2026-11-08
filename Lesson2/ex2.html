@@ -2,42 +2,46 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>เมนูอาหาร | php_7018</title>
 <style>
-:root{--blue:#79afea;--dark:#315f9e;--text:#40516f}
+:root{--b:#79afea;--d:#315f9e;--t:#40516f}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;color:var(--text);font-family:Tahoma,sans-serif;background:linear-gradient(135deg,#edf7ff,#dceeff 55%,#f7fbff)}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--t);font-family:Tahoma,sans-serif;background:linear-gradient(135deg,#edf7ff,#dceeff 55%,#f7fbff)}
 a{text-decoration:none;color:inherit}
-.wrap{width:min(900px,calc(100% - 32px));margin:auto}
+.wrap{width:min(1080px,calc(100% - 32px));margin:auto}
 header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0}
-.brand{font-weight:bold;color:var(--dark);font-size:20px}
-nav a,.back{display:inline-block;background:#fff;border:1px solid #c6ddfa;border-radius:30px;padding:9px 15px;color:var(--dark);font-size:14px}
-nav a:hover,.back:hover{background:var(--blue);color:#fff}
-main{padding:28px 0 45px}
-.hero{text-align:center;padding:38px 18px;border:2px solid white;border-radius:28px;background:linear-gradient(130deg,#cfe6ff,#fff 60%,#d8ecff);box-shadow:0 12px 30px #5b8bc21f}
+.brand{font-weight:bold;color:var(--d);font-size:20px}
+nav a,.home-back{display:inline-flex;align-items:center;background:#fff;border:1px solid #c6ddfa;border-radius:30px;padding:9px 15px;color:var(--d);font-size:14px;font-weight:bold}
+nav a:hover,.home-back:hover{background:var(--b);color:#fff}
+main{padding:10px 0 35px}
+.home-back{margin:0 0 18px}
+.hero{text-align:center;padding:48px 18px;border:2px solid white;border-radius:28px;background:linear-gradient(130deg,#cfe6ff,#fff 60%,#d8ecff);box-shadow:0 12px 30px #5b8bc21f}
 .tag{display:inline-block;background:white;border-radius:30px;padding:7px 14px;color:#4779b5;font-size:13px}
-h1{font-size:clamp(30px,6vw,48px);color:var(--dark);margin:15px 0 7px}
+h1{font-size:clamp(34px,6vw,58px);color:var(--d);margin:16px 0 7px}
 .hero p{color:#617797;margin:0}
-.panel{margin-top:24px;padding:25px;background:#ffffffed;border:1px solid #d9eaff;border-radius:24px;box-shadow:0 12px 30px #5b8bc21f}
-h2{color:var(--dark);margin:0 0 18px;font-size:23px}
+.panel{margin-top:25px;padding:25px;background:#ffffffed;border:1px solid #d9eaff;border-radius:24px;box-shadow:0 12px 30px #5b8bc21f}
+h2{color:var(--d);margin:0 0 18px;font-size:23px}
 .table-wrap{overflow-x:auto}
 table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid #d5e7ff;border-radius:15px;text-align:center}
-caption{padding:12px;color:var(--dark);font-weight:bold;font-size:18px}
-th{background:#dceeff;color:var(--dark);padding:14px}
+caption{padding:12px;color:var(--d);font-weight:bold;font-size:18px}
+th{background:#dceeff;color:var(--d);padding:14px}
 td{padding:13px;background:#fff;border-top:1px solid #e5effb}
 tbody tr:nth-child(even) td{background:#f4f9ff}
-tfoot td{background:#eaf4ff;color:var(--dark);font-weight:bold}
-footer{text-align:center;background:#cce4ffbf;color:#5b79a3;border-radius:22px;padding:18px;margin:25px 0 0}
-@media(max-width:600px){header{flex-direction:column}.panel{padding:16px}th,td{padding:11px 8px}}
+tfoot td{background:#eaf4ff;color:var(--d);font-weight:bold}
+footer{text-align:center;background:#cce4ffbf;color:#5b79a3;border-radius:22px;padding:20px;margin:28px 0 20px}
+@media(max-width:760px){header{flex-direction:column}.panel{padding:17px}}
+@media(max-width:600px){th,td{padding:11px 8px;font-size:14px}}
 </style>
 </head>
 <body>
 <header class="wrap">
 <a class="brand" href="../index.html">🐱 php_7018</a>
-<nav><a href="../index.html">หน้าแรก</a></nav>
+<nav><a href="../index.html">← กลับหน้าหลัก</a></nav>
 </header>
 <main class="wrap">
+<a class="home-back" href="../index.html">← กลับหน้าหลัก</a>
 <section class="hero">
 <span class="tag">♡ MY WEB DEVELOPMENT JOURNEY ♡</span>
 <h1>เมนูอาหาร ☕</h1>
@@ -48,13 +52,7 @@ footer{text-align:center;background:#cce4ffbf;color:#5b79a3;border-radius:22px;p
 <div class="table-wrap">
 <table>
 <caption>เมนูอาหาร</caption>
-<thead>
-<tr>
-<th>เมนู</th>
-<th>ร้อน</th>
-<th>เย็ฯ</th>
-</tr>
-</thead>
+<thead><tr><th>เมนู</th><th>ร้อน</th><th>เย็น</th></tr></thead>
 <tbody>
 <tr><td>ลาเต้</td><td>50</td><td>60</td></tr>
 <tr><td>น้ำเปล่า</td><td colspan="2">10</td></tr>
