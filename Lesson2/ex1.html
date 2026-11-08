@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Exercise 1 | php_7018</title>
+<title>โปรไฟล์ของฉัน | php_7018</title>
 <style>
 :root{--b:#79afea;--d:#315f9e;--t:#40516f}
 *{box-sizing:border-box}
@@ -15,7 +15,7 @@ header{display:flex;justify-content:space-between;align-items:center;gap:16px;pa
 .brand{font-weight:bold;color:var(--d);font-size:20px}
 nav{display:flex;gap:8px;flex-wrap:wrap}
 nav a{background:#fff;border:1px solid #c6ddfa;border-radius:30px;padding:9px 14px;color:var(--d);font-size:14px}
-nav a:hover,.quick-links a:hover,.home-back:hover{background:var(--b);color:white}
+nav a:hover,.home-back:hover,.quick-links a:hover{background:var(--b);color:white}
 .hero{text-align:center;padding:55px 18px;border:2px solid white;border-radius:28px;background:linear-gradient(130deg,#cfe6ff,#fff 60%,#d8ecff);box-shadow:0 12px 30px #5b8bc21f}
 .tag{background:white;border-radius:30px;padding:7px 14px;color:#4779b5;font-size:13px}
 h1{font-size:clamp(38px,7vw,60px);color:var(--d);margin:16px 0 5px;line-height:1.3}
@@ -23,18 +23,25 @@ h1{font-size:clamp(38px,7vw,60px);color:var(--d);margin:16px 0 5px;line-height:1
 .cat{font-size:42px;margin-top:15px}
 section{margin-top:28px}
 .heading{color:var(--d);font-size:25px;margin:0 0 14px}
-.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.content-card{background:#ffffffed;border:1px solid #d5e7ff;border-radius:23px;padding:24px;box-shadow:0 12px 30px #5b8bc21f}
-.content-card h2{color:var(--d);margin:0 0 10px;font-size:22px}
-.content-card p{margin:0;color:#617797}
-.quick-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.quick-links a{background:#eef6ff;color:#4778b3;padding:9px 16px;border-radius:12px;font-size:14px;font-weight:bold;border:1px solid #dceaff}
+.profile{display:grid;grid-template-columns:130px 1fr auto;gap:22px;align-items:center;background:#ffffffed;border:1px solid #d9eaff;border-radius:24px;padding:25px;box-shadow:0 12px 30px #5b8bc21f}
+.avatar{width:120px;height:120px;border-radius:50%;display:grid;place-items:center;background:#d2e6ff;border:6px solid white;font-size:55px}
+.profile h2{color:var(--d);margin:0 0 8px;font-size:23px}
+.profile p{margin:7px 0}
+.note{text-align:center;color:#6387b5;font-weight:bold;line-height:1.7}
+.note span{font-size:40px;display:block}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:#ffffffed;border:1px solid #d5e7ff;border-radius:23px;padding:22px;box-shadow:0 12px 30px #5b8bc21f;transition:.2s}
+.card:hover{transform:translateY(-3px)}
+.card h3{color:var(--d);margin:0 0 8px;font-size:21px}
+.card p{color:#74839d;margin:0}
 .home-back{display:inline-flex;align-items:center;gap:7px;margin-top:22px;padding:9px 16px;background:#fff;border:1px solid #c6ddfa;border-radius:30px;color:var(--d);font-size:14px;font-weight:bold;box-shadow:0 5px 15px #5b8bc21a;transition:.2s}
+.quick-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.quick-links a{text-align:center;background:#eef6ff;color:#4778b3;padding:9px 14px;border-radius:10px;font-size:13px;font-weight:bold;border:1px solid #dceaff}
 footer{text-align:center;background:#cce4ffbf;color:#5b79a3;border-radius:22px;padding:20px;margin:30px 0 20px}
 footer p{margin:5px}
 .gh{color:var(--d);font-weight:bold;text-decoration:underline}
-@media(max-width:760px){header{flex-direction:column}.content-grid{grid-template-columns:1fr}}
-@media(max-width:420px){.wrap{width:calc(100% - 22px)}nav a{padding:8px 10px;font-size:12px}.hero{padding:42px 12px}.content-card{padding:20px}}
+@media(max-width:760px){header{flex-direction:column}.profile{grid-template-columns:1fr;text-align:center;justify-items:center}.cards{grid-template-columns:1fr}}
+@media(max-width:420px){.wrap{width:calc(100% - 22px)}nav a{padding:8px 10px;font-size:12px}.hero{padding:42px 12px}}
 </style>
 </head>
 <body>
@@ -50,14 +57,15 @@ footer p{margin:5px}
 <main class="wrap">
 <section class="hero">
 <span class="tag">♡ MY WEB DEVELOPMENT JOURNEY ♡</span>
-<h1>Exercise 1</h1>
+<h1>โปรไฟล์ของฉัน</h1>
 <p>แบบฝึกหัดบทเรียนที่ 2 · HTML และ Form</p>
 <div class="cat">📝 💻</div>
 </section>
 <section>
-<h2 class="heading">📘 โปรไฟล์ของฉัน</h2>
-<div class="content-grid">
-<article class="content-card">
+<h2 class="heading">👤 About Me</h2>
+<div class="profile">
+<div class="avatar">🐱</div>
+<div>
 <h2>Wayroad Pongbuparikul</h2>
 <p>ยินดีต้อนรับสู่หน้าโปรไฟล์ของฉัน</p>
 <div class="quick-links">
@@ -65,15 +73,15 @@ footer p{margin:5px}
 <a href="2.html">Link2</a>
 <a href="3.html">Link3</a>
 </div>
-</article>
-<article class="content-card">
-<h2>งานอดิเรก</h2>
-<p>พื้นที่แสดงหัวข้อเกี่ยวกับงานอดิเรก</p>
-</article>
-<article class="content-card">
-<h2>อาหารที่ชอบ</h2>
-<p>พื้นที่แสดงหัวข้อเกี่ยวกับอาหารที่ชอบ</p>
-</article>
+</div>
+<div class="note"><span>🌷</span>Keep Learning<br>Keep Growing!</div>
+</div>
+</section>
+<section>
+<h2 class="heading">♡ สิ่งที่ฉันชอบ</h2>
+<div class="cards">
+<article class="card"><h3>🎨 งานอดิเรก</h3><p>งานอดิเรก</p></article>
+<article class="card"><h3>🍽️ อาหารที่ชอบ</h3><p>อาหารที่ชอบ</p></article>
 </div>
 <a class="home-back" href="../index.html">← กลับหน้าหลัก</a>
 </section>
